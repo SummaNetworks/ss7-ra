@@ -22,8 +22,6 @@
 
 package org.mobicents.slee.resource.map.wrappers;
 
-import javolution.util.FastMap;
-
 import org.mobicents.protocols.ss7.map.api.MAPDialog;
 import org.mobicents.protocols.ss7.map.api.MAPDialogListener;
 import org.mobicents.protocols.ss7.map.api.MAPParameterFactory;
@@ -37,7 +35,6 @@ import org.mobicents.protocols.ss7.map.api.service.oam.MAPServiceOam;
 import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.MAPServicePdpContextActivation;
 import org.mobicents.protocols.ss7.map.api.service.sms.MAPServiceSms;
 import org.mobicents.protocols.ss7.map.api.service.supplementary.MAPServiceSupplementary;
-import org.mobicents.protocols.ss7.sccp.NetworkIdState;
 import org.mobicents.slee.resource.map.MAPResourceAdaptor;
 import org.mobicents.slee.resource.map.service.callhandling.wrappers.MAPServiceCallHandlingWrapper;
 import org.mobicents.slee.resource.map.service.lsm.wrappers.MAPServiceLsmWrapper;
@@ -69,7 +66,6 @@ public class MAPProviderWrapper implements MAPProvider {
 	private final MAPResourceAdaptor ra;
 
 	/**
-	 * @param wrappedProvider
 	 * @param ra
 	 */
 	public MAPProviderWrapper(MAPResourceAdaptor ra) {
@@ -213,6 +209,7 @@ public class MAPProviderWrapper implements MAPProvider {
 		}
 		return this.wrappedLSM;
 	}
+/*
 
     @Override
     public NetworkIdState getNetworkIdState(int networkId) {
@@ -229,6 +226,7 @@ public class MAPProviderWrapper implements MAPProvider {
         }
         return this.wrappedProvider.getNetworkIdStateList();
     }
+*/
 
 	public void setWrappedProvider(MAPProvider wrappedProvider) {
 		this.wrappedProvider = wrappedProvider;

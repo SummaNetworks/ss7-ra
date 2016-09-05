@@ -67,4 +67,34 @@ public class MAPDialogPdpContextActivationWrapper extends MAPDialogWrapper<MAPDi
         this.wrappedDialog.addSendRoutingInfoForGprsResponse(invokeId, sgsnAddress, ggsnAddress, mobileNotReachableReason, extensionContainer);
     }
 
+    @Override
+    public Long addFailureReportRequest(IMSI imsi, ISDNAddressString isdnAddressString, GSNAddress gsnAddress, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        return this.wrappedDialog.addFailureReportRequest(imsi, isdnAddressString, gsnAddress, mapExtensionContainer);
+    }
+
+    @Override
+    public Long addFailureReportRequest(int i, IMSI imsi, ISDNAddressString isdnAddressString, GSNAddress gsnAddress, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        return this.wrappedDialog.addFailureReportRequest(i, imsi, isdnAddressString, gsnAddress, mapExtensionContainer);
+    }
+
+    @Override
+    public void addFailureReportResponse(long l, GSNAddress gsnAddress, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        this.wrappedDialog.addFailureReportResponse(l, gsnAddress, mapExtensionContainer);
+    }
+
+    @Override
+    public Long addNoteMsPresentForGprsRequest(IMSI imsi, GSNAddress gsnAddress, GSNAddress gsnAddress1, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        return this.wrappedDialog.addNoteMsPresentForGprsRequest(imsi, gsnAddress, gsnAddress1, mapExtensionContainer);
+    }
+
+    @Override
+    public Long addNoteMsPresentForGprsRequest(int i, IMSI imsi, GSNAddress gsnAddress, GSNAddress gsnAddress1, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        return this.wrappedDialog.addNoteMsPresentForGprsRequest(i, imsi, gsnAddress, gsnAddress1, mapExtensionContainer);
+    }
+
+    @Override
+    public void addNoteMsPresentForGprsResponse(long l, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        this.wrappedDialog.addNoteMsPresentForGprsResponse(l, mapExtensionContainer);
+    }
+
 }

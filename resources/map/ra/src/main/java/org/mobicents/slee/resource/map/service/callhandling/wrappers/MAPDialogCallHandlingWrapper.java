@@ -39,6 +39,7 @@ import org.mobicents.protocols.ss7.map.api.service.callhandling.CCBSIndicators;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.CUGCheckInfo;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.CallDiversionTreatmentIndicator;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.CallReferenceNumber;
+import org.mobicents.protocols.ss7.map.api.service.callhandling.CallTerminationIndicator;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.CamelInfo;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.ExtendedRoutingInfo;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.InterrogationType;
@@ -206,6 +207,21 @@ public class MAPDialogCallHandlingWrapper extends MAPDialogWrapper<MAPDialogCall
     @Override
     public void addIstCommandResponse(long invokeId, MAPExtensionContainer extensionContainer) throws MAPException {
         this.wrappedDialog.addIstCommandResponse(invokeId, extensionContainer);
+    }
+
+    @Override
+    public Long addIstAlertRequest(IMSI imsi, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        return this.wrappedDialog.addIstAlertRequest(imsi, mapExtensionContainer);
+    }
+
+    @Override
+    public Long addIstAlertRequest(int i, IMSI imsi, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        return this.wrappedDialog.addIstAlertRequest(i, imsi, mapExtensionContainer);
+    }
+
+    @Override
+    public void addIstAlertResponse(long l, Integer integer, boolean b, CallTerminationIndicator callTerminationIndicator, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+        this.wrappedDialog.addIstAlertResponse(l, integer, b, callTerminationIndicator, mapExtensionContainer);
     }
 
 }

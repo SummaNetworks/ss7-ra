@@ -289,9 +289,23 @@
         <event-type-vendor>org.mobicents</event-type-vendor>
         <event-type-version>1.0</event-type-version>
         <event-class-name>org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeSubscriptionInterrogationResponse</event-class-name>
-    </event-definition>     
+    </event-definition>
 
-    <event-definition>
+	<event-definition>
+		<event-type-name>ss7.map.service.mobility.subscriberinfo.ANY_TIME_MODIFICATION_REQUEST</event-type-name>
+		<event-type-vendor>org.mobicents</event-type-vendor>
+		<event-type-version>1.0</event-type-version>
+		<event-class-name>org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeModificationRequest</event-class-name>
+	</event-definition>
+
+	<event-definition>
+		<event-type-name>ss7.map.service.mobility.subscriberinfo.ANY_TIME_MODIFICATION_RESPONSE</event-type-name>
+		<event-type-vendor>org.mobicents</event-type-vendor>
+		<event-type-version>1.0</event-type-version>
+		<event-class-name>org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeModificationResponse</event-class-name>
+	</event-definition>
+
+	<event-definition>
         <event-type-name>ss7.map.service.mobility.subscriberinfo.PROVIDE_SUBSCRIBER_INFO_REQUEST</event-type-name>
         <event-type-vendor>org.mobicents</event-type-vendor>
         <event-type-version>1.0</event-type-version>
@@ -304,6 +318,20 @@
         <event-type-version>1.0</event-type-version>
         <event-class-name>org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ProvideSubscriberInfoResponse</event-class-name>
     </event-definition>     
+
+	<event-definition>
+        <event-type-name>ss7.map.service.mobility.subscriberinfo.NOTE_SUBSCRIBER_DATA_MODIFIED_REQUEST</event-type-name>
+        <event-type-vendor>org.mobicents</event-type-vendor>
+        <event-type-version>1.0</event-type-version>
+        <event-class-name>org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.NoteSubscriberDataModifiedRequest</event-class-name>
+    </event-definition>
+
+    <event-definition>
+        <event-type-name>ss7.map.service.mobility.subscriberinfo.NOTE_SUBSCRIBER_DATA_MODIFIED_RESPONSE</event-type-name>
+        <event-type-vendor>org.mobicents</event-type-vendor>
+        <event-type-version>1.0</event-type-version>
+        <event-class-name>org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.NoteSubscriberDataModifiedResponse</event-class-name>
+    </event-definition>
 
 
 	<!-- OAM -->
@@ -391,6 +419,20 @@
 		<event-type-vendor>org.mobicents</event-type-vendor>
 		<event-type-version>1.0</event-type-version>
 		<event-class-name>org.mobicents.protocols.ss7.map.api.service.callhandling.IstCommandResponse</event-class-name>
+	</event-definition>
+
+	<event-definition>
+		<event-type-name>ss7.map.service.callhandling.IST_ALERT_REQUEST</event-type-name>
+		<event-type-vendor>org.mobicents</event-type-vendor>
+		<event-type-version>1.0</event-type-version>
+		<event-class-name>org.mobicents.protocols.ss7.map.api.service.callhandling.IstAlertRequest</event-class-name>
+	</event-definition>
+	
+	<event-definition>
+		<event-type-name>ss7.map.service.callhandling.IST_ALERT_RESPONSE</event-type-name>
+		<event-type-vendor>org.mobicents</event-type-vendor>
+		<event-type-version>1.0</event-type-version>
+		<event-class-name>org.mobicents.protocols.ss7.map.api.service.callhandling.IstAlertResponse</event-class-name>
 	</event-definition>
 
 	<!-- Suplementary -->
@@ -661,6 +703,34 @@
         <event-type-vendor>org.mobicents</event-type-vendor>
         <event-type-version>1.0</event-type-version>
         <event-class-name>org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.SendRoutingInfoForGprsResponse</event-class-name>
+    </event-definition>
+
+    <event-definition>
+        <event-type-name>ss7.map.service.pdpContextActivation.NOTE_MS_PRESENT_FOR_GPRS_REQUEST</event-type-name>
+        <event-type-vendor>org.mobicents</event-type-vendor>
+        <event-type-version>1.0</event-type-version>
+        <event-class-name>org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.NoteMsPresentForGprsRequest</event-class-name>
+    </event-definition>
+
+    <event-definition>
+        <event-type-name>ss7.map.service.pdpContextActivation.NOTE_MS_PRESENT_FOR_GPRS_RESPONSE</event-type-name>
+        <event-type-vendor>org.mobicents</event-type-vendor>
+        <event-type-version>1.0</event-type-version>
+        <event-class-name>org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.NoteMsPresentForGprsResponse</event-class-name>
+    </event-definition>
+
+    <event-definition>
+        <event-type-name>ss7.map.service.pdpContextActivation.FAILURE_REPORT_REQUEST</event-type-name>
+        <event-type-vendor>org.mobicents</event-type-vendor>
+        <event-type-version>1.0</event-type-version>
+        <event-class-name>org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.FailureReportRequest</event-class-name>
+    </event-definition>
+
+    <event-definition>
+        <event-type-name>ss7.map.service.pdpContextActivation.FAILURE_REPORT_RESPONSE</event-type-name>
+        <event-type-vendor>org.mobicents</event-type-vendor>
+        <event-type-version>1.0</event-type-version>
+        <event-class-name>org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.FailureReportResponse</event-class-name>
     </event-definition>
 
 

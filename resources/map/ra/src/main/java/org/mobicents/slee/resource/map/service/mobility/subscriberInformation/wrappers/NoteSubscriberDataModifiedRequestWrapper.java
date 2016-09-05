@@ -24,21 +24,21 @@ package org.mobicents.slee.resource.map.service.mobility.subscriberInformation.w
 
 import java.util.ArrayList;
 
+import org.mobicents.protocols.ss7.map.api.primitives.IMSI;
+import org.mobicents.protocols.ss7.map.api.primitives.ISDNAddressString;
 import org.mobicents.protocols.ss7.map.api.primitives.MAPExtensionContainer;
-import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeSubscriptionInterrogationResponse;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.CAMELSubscriptionInfo;
-import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.CallBarringData;
-import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.CallForwardingData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.CallHoldData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.CallWaitingData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ClipData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ClirData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.EctData;
-import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.MSISDNBS;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ExtCallBarringInfoForCSE;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ExtForwardingInfoForCSE;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.NoteSubscriberDataModifiedRequest;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ODBInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ServingNode;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberManagement.CSGSubscriptionData;
-import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberManagement.OfferedCamel4CSIs;
-import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberManagement.SupportedCamelPhases;
 import org.mobicents.slee.resource.map.service.mobility.wrappers.MAPDialogMobilityWrapper;
 import org.mobicents.slee.resource.map.service.mobility.wrappers.MobilityMessageWrapper;
 
@@ -47,24 +47,37 @@ import org.mobicents.slee.resource.map.service.mobility.wrappers.MobilityMessage
  * @author sergey vetyutnev
  * 
  */
-public class AnyTimeSubscriptionInterrogationResponseWrapper extends
-        MobilityMessageWrapper<AnyTimeSubscriptionInterrogationResponse> implements AnyTimeSubscriptionInterrogationResponse {
+public class NoteSubscriberDataModifiedRequestWrapper extends MobilityMessageWrapper<NoteSubscriberDataModifiedRequest> implements NoteSubscriberDataModifiedRequest {
 
-    private static final String EVENT_TYPE_NAME = "ss7.map.service.mobility.subscriberinfo.ANY_TIME_SUBSCRIPTION_INTERROGATION_RESPONSE";
+    private static final String EVENT_TYPE_NAME = "ss7.map.service.mobility.subscriberinfo.PROVIDE_SUBSCRIBER_INFO_REQUEST";
 
-    public AnyTimeSubscriptionInterrogationResponseWrapper(MAPDialogMobilityWrapper mapDialogWrapper,
-            AnyTimeSubscriptionInterrogationResponse wrappedEvent) {
-        super(mapDialogWrapper, EVENT_TYPE_NAME, wrappedEvent);
+    public NoteSubscriberDataModifiedRequestWrapper(MAPDialogMobilityWrapper mAPDialog, NoteSubscriberDataModifiedRequest req) {
+        super(mAPDialog, EVENT_TYPE_NAME, req);
     }
 
     @Override
-    public CallForwardingData getCallForwardingData() {
-        return this.wrappedEvent.getCallForwardingData();
+    public IMSI getImsi() {
+        return this.wrappedEvent.getImsi();
     }
 
     @Override
-    public CallBarringData getCallBarringData() {
-        return this.wrappedEvent.getCallBarringData();
+    public MAPExtensionContainer getExtensionContainer() {
+        return this.wrappedEvent.getExtensionContainer();
+    }
+
+    @Override
+    public ISDNAddressString getMsisdn() {
+        return this.wrappedEvent.getMsisdn();
+    }
+
+    @Override
+    public ExtForwardingInfoForCSE getForwardingInfoForCSE() {
+        return this.wrappedEvent.getForwardingInfoForCSE();
+    }
+
+    @Override
+    public ExtCallBarringInfoForCSE getCallBarringInfoForCSE() {
+        return this.wrappedEvent.getCallBarringInfoForCSE();
     }
 
     @Override
@@ -78,33 +91,13 @@ public class AnyTimeSubscriptionInterrogationResponseWrapper extends
     }
 
     @Override
-    public SupportedCamelPhases getSupportedVlrCamelPhases() {
-        return this.wrappedEvent.getSupportedSgsnCamelPhases();
+    public boolean getAllInformationSent() {
+        return this.wrappedEvent.getAllInformationSent();
     }
 
     @Override
-    public SupportedCamelPhases getSupportedSgsnCamelPhases() {
-        return this.wrappedEvent.getSupportedSgsnCamelPhases();
-    }
-
-    @Override
-    public MAPExtensionContainer getExtensionContainer() {
-        return this.wrappedEvent.getExtensionContainer();
-    }
-
-    @Override
-    public OfferedCamel4CSIs getOfferedCamel4CSIsInVlr() {
-        return this.wrappedEvent.getOfferedCamel4CSIsInVlr();
-    }
-
-    @Override
-    public OfferedCamel4CSIs getOfferedCamel4CSIsInSgsn() {
-        return this.wrappedEvent.getOfferedCamel4CSIsInSgsn();
-    }
-
-    @Override
-    public ArrayList<MSISDNBS> getMsisdnBsList() {
-        return this.wrappedEvent.getMsisdnBsList();
+    public ServingNode getUeReachable() {
+        return this.wrappedEvent.getUeReachable();
     }
 
     @Override
@@ -137,9 +130,14 @@ public class AnyTimeSubscriptionInterrogationResponseWrapper extends
         return this.wrappedEvent.getEctData();
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
-        return "AnyTimeSubscriptionInterrogationResponseWrapper [wrapped=" + this.wrappedEvent + "]";
+        return "NoteSubscriberDataModifiedRequestWrapper [wrapped=" + this.wrappedEvent + "]";
     }
 
 }

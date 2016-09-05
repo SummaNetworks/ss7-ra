@@ -71,10 +71,26 @@ import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformatio
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ClipData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ClirData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.EctData;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ExtCallBarringInfoForCSE;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ExtForwardingInfoForCSE;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ExtSSInfoForCSE;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.MSISDNBS;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCBInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCFInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCHInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCLIPInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCLIRInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCSG;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCSI;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForCWInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForECTInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForIPSMGWData;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ModificationRequestForODBdata;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ODBInfo;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.RequestedInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.RequestedServingNode;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.RequestedSubscriptionInfo;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ServingNode;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.SubscriberInfo;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberManagement.AccessRestrictionData;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberManagement.CSAllocationRetentionPriority;
@@ -565,12 +581,95 @@ public class MAPDialogMobilityWrapper extends MAPDialogWrapper<MAPDialogMobility
     }
 
     @Override
-    public long addAnyTimeSubscriptionInterrogationRequest(int customTimeout, SubscriberIdentity subscriberIdentity,
-            RequestedSubscriptionInfo requestedSubscriptionInfo, ISDNAddressString gsmSCFAddress,
-            MAPExtensionContainer extensionContainer, boolean isLongFTNSupported) throws MAPException {
+    public long addAnyTimeSubscriptionInterrogationRequest(long customTimeout, SubscriberIdentity subscriberIdentity,
+                                                           RequestedSubscriptionInfo requestedSubscriptionInfo, ISDNAddressString gsmSCFAddress,
+                                                           MAPExtensionContainer extensionContainer, boolean isLongFTNSupported) throws MAPException {
         return this.wrappedDialog.addAnyTimeSubscriptionInterrogationRequest(customTimeout, subscriberIdentity,
                 requestedSubscriptionInfo, gsmSCFAddress, extensionContainer, isLongFTNSupported);
     }
+
+
+
+    @Override
+	public long addAnyTimeModificationRequest(SubscriberIdentity subscriberIdentity, ISDNAddressString isdnAddressString,
+											  ModificationRequestForCFInfo modificationRequestForCFInfo,
+											  ModificationRequestForCBInfo modificationRequestForCBInfo,
+											  ModificationRequestForCSI modificationRequestForCSI,
+											  MAPExtensionContainer mapExtensionContainer, boolean b,
+											  ModificationRequestForODBdata modificationRequestForODBdata,
+											  ModificationRequestForIPSMGWData modificationRequestForIPSMGWData,
+											  RequestedServingNode requestedServingNode,
+											  ModificationRequestForCSG modificationRequestForCSG,
+											  ModificationRequestForCWInfo modificationRequestForCWInfo,
+											  ModificationRequestForCLIPInfo modificationRequestForCLIPInfo,
+											  ModificationRequestForCLIRInfo modificationRequestForCLIRInfo,
+											  ModificationRequestForCHInfo modificationRequestForCHInfo,
+											  ModificationRequestForECTInfo modificationRequestForECTInfo) throws MAPException {
+        return this.wrappedDialog.addAnyTimeModificationRequest(subscriberIdentity, isdnAddressString,
+                modificationRequestForCFInfo, modificationRequestForCBInfo, modificationRequestForCSI, mapExtensionContainer,
+                b, modificationRequestForODBdata, modificationRequestForIPSMGWData, requestedServingNode,
+                modificationRequestForCSG, modificationRequestForCWInfo, modificationRequestForCLIPInfo,
+                modificationRequestForCLIRInfo, modificationRequestForCHInfo, modificationRequestForECTInfo);
+	}
+
+	@Override
+	public long addAnyTimeModificationRequest(long l, SubscriberIdentity subscriberIdentity, ISDNAddressString isdnAddressString,
+											  ModificationRequestForCFInfo modificationRequestForCFInfo,
+											  ModificationRequestForCBInfo modificationRequestForCBInfo,
+											  ModificationRequestForCSI modificationRequestForCSI,
+											  MAPExtensionContainer mapExtensionContainer, boolean b,
+											  ModificationRequestForODBdata modificationRequestForODBdata,
+											  ModificationRequestForIPSMGWData modificationRequestForIPSMGWData,
+											  RequestedServingNode requestedServingNode,
+											  ModificationRequestForCSG modificationRequestForCSG,
+											  ModificationRequestForCWInfo modificationRequestForCWInfo,
+											  ModificationRequestForCLIPInfo modificationRequestForCLIPInfo,
+											  ModificationRequestForCLIRInfo modificationRequestForCLIRInfo,
+											  ModificationRequestForCHInfo modificationRequestForCHInfo,
+											  ModificationRequestForECTInfo modificationRequestForECTInfo) throws MAPException {
+		return this.wrappedDialog.addAnyTimeModificationRequest(l, subscriberIdentity, isdnAddressString,
+                modificationRequestForCFInfo, modificationRequestForCBInfo, modificationRequestForCSI, mapExtensionContainer, b,
+                modificationRequestForODBdata, modificationRequestForIPSMGWData, requestedServingNode, modificationRequestForCSG,
+                modificationRequestForCWInfo, modificationRequestForCLIPInfo, modificationRequestForCLIRInfo,
+                modificationRequestForCHInfo, modificationRequestForECTInfo);
+	}
+
+	@Override
+	public void addAnyTimeModificationResponse(long l, ExtSSInfoForCSE extSSInfoForCSE, CAMELSubscriptionInfo camelSubscriptionInfo,
+											   MAPExtensionContainer mapExtensionContainer, ODBInfo odbInfo,
+											   CallWaitingData callWaitingData, CallHoldData callHoldData, ClipData clipData,
+                                               ClirData clirData, EctData ectData, AddressString addressString) throws MAPException {
+
+	}
+
+	@Override
+	public long addNoteSubscriberDataModifiedRequest(IMSI imsi, ISDNAddressString isdnAddressString,
+                                                     ExtForwardingInfoForCSE extForwardingInfoForCSE,
+                                                     ExtCallBarringInfoForCSE extCallBarringInfoForCSE,
+                                                     ODBInfo odbInfo, CAMELSubscriptionInfo camelSubscriptionInfo,
+                                                     boolean b, MAPExtensionContainer mapExtensionContainer,
+                                                     ServingNode servingNode, ArrayList<CSGSubscriptionData> arrayList,
+                                                     CallWaitingData callWaitingData, CallHoldData callHoldData,
+                                                     ClipData clipData, ClirData clirData, EctData ectData) throws MAPException {
+		return 0;
+	}
+
+	@Override
+	public long addNoteSubscriberDataModifiedRequest(long l, IMSI imsi, ISDNAddressString isdnAddressString,
+                                                     ExtForwardingInfoForCSE extForwardingInfoForCSE,
+                                                     ExtCallBarringInfoForCSE extCallBarringInfoForCSE, ODBInfo odbInfo,
+                                                     CAMELSubscriptionInfo camelSubscriptionInfo, boolean b,
+                                                     MAPExtensionContainer mapExtensionContainer, ServingNode servingNode,
+                                                     ArrayList<CSGSubscriptionData> arrayList, CallWaitingData callWaitingData,
+                                                     CallHoldData callHoldData, ClipData clipData, ClirData clirData,
+                                                     EctData ectData) throws MAPException {
+		return 0;
+	}
+
+	@Override
+	public void addNoteSubscriberDataModifiedResponse(long l, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+
+	}
 
     @Override
     public void addAnyTimeSubscriptionInterrogationResponse(long invokeId, CallForwardingData callForwardingData,

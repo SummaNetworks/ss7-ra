@@ -61,6 +61,8 @@ import org.mobicents.protocols.ss7.map.api.errors.MAPErrorMessage;
 import org.mobicents.protocols.ss7.map.api.primitives.AddressString;
 import org.mobicents.protocols.ss7.map.api.primitives.IMSI;
 import org.mobicents.protocols.ss7.map.api.primitives.MAPExtensionContainer;
+import org.mobicents.protocols.ss7.map.api.service.callhandling.IstAlertRequest;
+import org.mobicents.protocols.ss7.map.api.service.callhandling.IstAlertResponse;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.IstCommandRequest;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.IstCommandResponse;
 import org.mobicents.protocols.ss7.map.api.service.callhandling.MAPDialogCallHandling;
@@ -103,8 +105,12 @@ import org.mobicents.protocols.ss7.map.api.service.mobility.oam.ActivateTraceMod
 import org.mobicents.protocols.ss7.map.api.service.mobility.oam.ActivateTraceModeResponse_Mobility;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeInterrogationRequest;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeInterrogationResponse;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeModificationRequest;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeModificationResponse;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeSubscriptionInterrogationRequest;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.AnyTimeSubscriptionInterrogationResponse;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.NoteSubscriberDataModifiedRequest;
+import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.NoteSubscriberDataModifiedResponse;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ProvideSubscriberInfoRequest;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberInformation.ProvideSubscriberInfoResponse;
 import org.mobicents.protocols.ss7.map.api.service.mobility.subscriberManagement.DeleteSubscriberDataRequest;
@@ -117,8 +123,12 @@ import org.mobicents.protocols.ss7.map.api.service.oam.MAPDialogOam;
 import org.mobicents.protocols.ss7.map.api.service.oam.MAPServiceOamListener;
 import org.mobicents.protocols.ss7.map.api.service.oam.SendImsiRequest;
 import org.mobicents.protocols.ss7.map.api.service.oam.SendImsiResponse;
+import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.FailureReportRequest;
+import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.FailureReportResponse;
 import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.MAPDialogPdpContextActivation;
 import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.MAPServicePdpContextActivationListener;
+import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.NoteMsPresentForGprsRequest;
+import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.NoteMsPresentForGprsResponse;
 import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.SendRoutingInfoForGprsRequest;
 import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.SendRoutingInfoForGprsResponse;
 import org.mobicents.protocols.ss7.map.api.service.sms.AlertServiceCentreRequest;
@@ -177,6 +187,8 @@ import org.mobicents.slee.resource.map.events.ErrorComponent;
 import org.mobicents.slee.resource.map.events.InvokeTimeout;
 import org.mobicents.slee.resource.map.events.MAPEvent;
 import org.mobicents.slee.resource.map.events.RejectComponent;
+import org.mobicents.slee.resource.map.service.callhandling.wrappers.IstAlertRequestWrapper;
+import org.mobicents.slee.resource.map.service.callhandling.wrappers.IstAlertResponseWrapper;
 import org.mobicents.slee.resource.map.service.callhandling.wrappers.IstCommandRequestWrapper;
 import org.mobicents.slee.resource.map.service.callhandling.wrappers.IstCommandResponseWrapper;
 import org.mobicents.slee.resource.map.service.callhandling.wrappers.MAPDialogCallHandlingWrapper;
@@ -215,8 +227,12 @@ import org.mobicents.slee.resource.map.service.mobility.oam.wrappers.ActivateTra
 import org.mobicents.slee.resource.map.service.mobility.oam.wrappers.ActivateTraceModeResponse_MobilityWrapper;
 import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.AnyTimeInterrogationRequestWrapper;
 import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.AnyTimeInterrogationResponseWrapper;
+import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.AnyTimeModificationRequestWrapper;
+import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.AnyTimeModificationResponseWrapper;
 import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.AnyTimeSubscriptionInterrogationRequestWrapper;
 import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.AnyTimeSubscriptionInterrogationResponseWrapper;
+import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.NoteSubscriberDataModifiedRequestWrapper;
+import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.NoteSubscriberDataModifiedResponseWrapper;
 import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.ProvideSubscriberInfoRequestWrapper;
 import org.mobicents.slee.resource.map.service.mobility.subscriberInformation.wrappers.ProvideSubscriberInfoResponseWrapper;
 import org.mobicents.slee.resource.map.service.mobility.subscriberManagement.wrappers.DeleteSubscriberDataRequestWrapper;
@@ -229,7 +245,11 @@ import org.mobicents.slee.resource.map.service.oam.wrappers.ActivateTraceModeRes
 import org.mobicents.slee.resource.map.service.oam.wrappers.MAPDialogOamWrapper;
 import org.mobicents.slee.resource.map.service.oam.wrappers.SendImsiRequestWrapper;
 import org.mobicents.slee.resource.map.service.oam.wrappers.SendImsiResponseWrapper;
+import org.mobicents.slee.resource.map.service.pdpContextActivation.wrappers.FailureReportRequestWrapper;
+import org.mobicents.slee.resource.map.service.pdpContextActivation.wrappers.FailureReportResponseWrapper;
 import org.mobicents.slee.resource.map.service.pdpContextActivation.wrappers.MAPDialogPdpContextActivationWrapper;
+import org.mobicents.slee.resource.map.service.pdpContextActivation.wrappers.NoteMsPresentForGprsRequestWrapper;
+import org.mobicents.slee.resource.map.service.pdpContextActivation.wrappers.NoteMsPresentForGprsResponseWrapper;
 import org.mobicents.slee.resource.map.service.pdpContextActivation.wrappers.SendRoutingInfoForGprsRequestWrapper;
 import org.mobicents.slee.resource.map.service.pdpContextActivation.wrappers.SendRoutingInfoForGprsResponseWrapper;
 import org.mobicents.slee.resource.map.service.sms.wrappers.AlertServiceCentreRequestWrapper;
@@ -1141,6 +1161,24 @@ public class MAPResourceAdaptor implements ResourceAdaptor, MAPDialogListener, M
         onEvent(event.getEventTypeName(), mapDialogMobilityWrapper, event);
     }
 
+	@Override
+	public void onAnyTimeModificationRequest(AnyTimeModificationRequest anyTimeModificationRequest) {
+		MAPDialogMobilityWrapper mapDialogMobilityWrapper = (MAPDialogMobilityWrapper) anyTimeModificationRequest
+				.getMAPDialog().getUserObject();
+		AnyTimeModificationRequestWrapper event = new AnyTimeModificationRequestWrapper(mapDialogMobilityWrapper,
+				anyTimeModificationRequest);
+		onEvent(event.getEventTypeName(), mapDialogMobilityWrapper, event);
+	}
+
+	@Override
+	public void onAnyTimeModificationResponse(AnyTimeModificationResponse anyTimeModificationResponse) {
+		MAPDialogMobilityWrapper mapDialogMobilityWrapper = (MAPDialogMobilityWrapper) anyTimeModificationResponse
+				.getMAPDialog().getUserObject();
+		AnyTimeModificationResponseWrapper event = new AnyTimeModificationResponseWrapper(mapDialogMobilityWrapper,
+				anyTimeModificationResponse);
+		onEvent(event.getEventTypeName(), mapDialogMobilityWrapper, event);
+	}
+
     @Override
     public void onProvideSubscriberInfoRequest(ProvideSubscriberInfoRequest request) {
         MAPDialogMobilityWrapper mapDialogMobilityWrapper = (MAPDialogMobilityWrapper) request.getMAPDialog().getUserObject();
@@ -1152,6 +1190,20 @@ public class MAPResourceAdaptor implements ResourceAdaptor, MAPDialogListener, M
     public void onProvideSubscriberInfoResponse(ProvideSubscriberInfoResponse response) {
         MAPDialogMobilityWrapper mapDialogMobilityWrapper = (MAPDialogMobilityWrapper) response.getMAPDialog().getUserObject();
         ProvideSubscriberInfoResponseWrapper event = new ProvideSubscriberInfoResponseWrapper(mapDialogMobilityWrapper, response);
+        onEvent(event.getEventTypeName(), mapDialogMobilityWrapper, event);
+    }
+
+    @Override
+    public void onNoteSubscriberDataModifiedRequest(NoteSubscriberDataModifiedRequest request) {
+        MAPDialogMobilityWrapper mapDialogMobilityWrapper = (MAPDialogMobilityWrapper) request.getMAPDialog().getUserObject();
+        NoteSubscriberDataModifiedRequestWrapper event = new NoteSubscriberDataModifiedRequestWrapper(mapDialogMobilityWrapper, request);
+        onEvent(event.getEventTypeName(), mapDialogMobilityWrapper, event);
+    }
+
+    @Override
+    public void onNoteSubscriberDataModifiedResponse(NoteSubscriberDataModifiedResponse response) {
+        MAPDialogMobilityWrapper mapDialogMobilityWrapper = (MAPDialogMobilityWrapper) response.getMAPDialog().getUserObject();
+        NoteSubscriberDataModifiedResponseWrapper event = new NoteSubscriberDataModifiedResponseWrapper(mapDialogMobilityWrapper, response);
         onEvent(event.getEventTypeName(), mapDialogMobilityWrapper, event);
     }
 
@@ -1256,6 +1308,22 @@ public class MAPResourceAdaptor implements ResourceAdaptor, MAPDialogListener, M
         IstCommandResponseWrapper event = new IstCommandResponseWrapper(mapDialogCallHandlingWrapper, ind);
         onEvent(event.getEventTypeName(), mapDialogCallHandlingWrapper, event);
     }
+
+	@Override
+	public void onIstAlertRequest(IstAlertRequest ind) {
+		MAPDialogCallHandlingWrapper mapDialogCallHandlingWrapper = (MAPDialogCallHandlingWrapper) ind.getMAPDialog()
+				.getUserObject();
+		IstAlertRequestWrapper event = new IstAlertRequestWrapper(mapDialogCallHandlingWrapper, ind);
+		onEvent(event.getEventTypeName(), mapDialogCallHandlingWrapper, event);
+	}
+
+	@Override
+	public void onIstAlertResponse(IstAlertResponse ind) {
+		MAPDialogCallHandlingWrapper mapDialogCallHandlingWrapper = (MAPDialogCallHandlingWrapper) ind.getMAPDialog()
+				.getUserObject();
+		IstAlertResponseWrapper event = new IstAlertResponseWrapper(mapDialogCallHandlingWrapper, ind);
+		onEvent(event.getEventTypeName(), mapDialogCallHandlingWrapper, event);
+	}
 
 	// /////////////////////////
 	// SERVICE: Suplementary //
@@ -1571,6 +1639,38 @@ public class MAPResourceAdaptor implements ResourceAdaptor, MAPDialogListener, M
         MAPDialogPdpContextActivationWrapper mapDialogPdpContextActivationWrapper = (MAPDialogPdpContextActivationWrapper) response.getMAPDialog()
                 .getUserObject();
         SendRoutingInfoForGprsResponseWrapper event = new SendRoutingInfoForGprsResponseWrapper(mapDialogPdpContextActivationWrapper, response);
+        onEvent(event.getEventTypeName(), mapDialogPdpContextActivationWrapper, event);
+    }
+
+    @Override
+    public void onNoteMsPresentForGprsRequest(NoteMsPresentForGprsRequest request) {
+        MAPDialogPdpContextActivationWrapper mapDialogPdpContextActivationWrapper = (MAPDialogPdpContextActivationWrapper) request.getMAPDialog()
+                .getUserObject();
+        NoteMsPresentForGprsRequestWrapper event = new NoteMsPresentForGprsRequestWrapper(mapDialogPdpContextActivationWrapper, request);
+        onEvent(event.getEventTypeName(), mapDialogPdpContextActivationWrapper, event);
+    }
+
+    @Override
+    public void onNoteMsPresentForGprsResponse(NoteMsPresentForGprsResponse response) {
+        MAPDialogPdpContextActivationWrapper mapDialogPdpContextActivationWrapper = (MAPDialogPdpContextActivationWrapper) response.getMAPDialog()
+                .getUserObject();
+        NoteMsPresentForGprsResponseWrapper event = new NoteMsPresentForGprsResponseWrapper(mapDialogPdpContextActivationWrapper, response);
+        onEvent(event.getEventTypeName(), mapDialogPdpContextActivationWrapper, event);
+    }
+
+    @Override
+    public void onFailureReportRequest(FailureReportRequest request) {
+        MAPDialogPdpContextActivationWrapper mapDialogPdpContextActivationWrapper = (MAPDialogPdpContextActivationWrapper) request.getMAPDialog()
+                .getUserObject();
+        FailureReportRequestWrapper event = new FailureReportRequestWrapper(mapDialogPdpContextActivationWrapper, request);
+        onEvent(event.getEventTypeName(), mapDialogPdpContextActivationWrapper, event);
+    }
+
+    @Override
+    public void onFailureReportResponse(FailureReportResponse response) {
+        MAPDialogPdpContextActivationWrapper mapDialogPdpContextActivationWrapper = (MAPDialogPdpContextActivationWrapper) response.getMAPDialog()
+                .getUserObject();
+        FailureReportResponseWrapper event = new FailureReportResponseWrapper(mapDialogPdpContextActivationWrapper, response);
         onEvent(event.getEventTypeName(), mapDialogPdpContextActivationWrapper, event);
     }
 

@@ -238,6 +238,7 @@ public abstract class MAPDialogWrapper<T extends MAPDialog> implements MAPDialog
 	public void setRemoteAddress(SccpAddress address) {
 		this.wrappedDialog.setRemoteAddress(address);
 	}
+/*
 
     @Override
     public long getIdleTaskTimeout() {
@@ -248,6 +249,7 @@ public abstract class MAPDialogWrapper<T extends MAPDialog> implements MAPDialog
     public void setIdleTaskTimeout(long idleTaskTimeoutMs) {
         this.wrappedDialog.setIdleTaskTimeout(idleTaskTimeoutMs);
     }
+*/
 
 	public MAPDialogActivityHandle getActivityHandle() {
 		return activityHandle;
