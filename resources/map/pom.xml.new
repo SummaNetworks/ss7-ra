@@ -5,11 +5,11 @@
 	<parent>
 		<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 		<artifactId>restcomm-slee-ss7</artifactId>
-		<version>8.0.1-SUMMA-SNAPSHOT</version>
+		<version>8.0.0-SUMMA</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
-	<artifactId>restcomm-slee-ra-cap</artifactId>
+	<artifactId>restcomm-slee-ra-map</artifactId>
 	<groupId>org.mobicents.resources</groupId>
 
 	<modules>
@@ -21,12 +21,13 @@
 	</modules>
 
 	<properties>
-		<docs.ra.name>CAP</docs.ra.name>
-		<docs.ra.dirname>CAP</docs.ra.dirname>
-		<docs.bookid>CAP</docs.bookid>
+		<docs.ra.name>MAP</docs.ra.name>
+		<docs.ra.dirname>MAP</docs.ra.dirname>
+		<docs.bookid>MAP</docs.bookid>
 
-		<ss7.version>8.0.38</ss7.version>
+		<ss7.version>7.0.0-SUMMA</ss7.version>
 		<asn.version>2.1.5</asn.version>
+		<stream.version>1.0.0.FINAL</stream.version>
 
 		<javolution.version>5.5.1</javolution.version>
 	</properties>
@@ -62,10 +63,26 @@
 						<exclude>jtidy:jtidy</exclude>
 					</classpathExcludes>
 					<resolveTransitiveDependencies>true</resolveTransitiveDependencies>
-					<eclipseProjectName>restcomm-slee-ra-cap</eclipseProjectName>
+					<eclipseProjectName>restcomm-slee-ra-map</eclipseProjectName>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.2</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>restcomm-releases-repository</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy-to-sonatype</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
-
 </project>
