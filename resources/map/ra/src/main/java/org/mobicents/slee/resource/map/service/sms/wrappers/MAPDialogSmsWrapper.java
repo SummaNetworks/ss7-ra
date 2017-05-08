@@ -172,7 +172,29 @@ public class MAPDialogSmsWrapper extends MAPDialogWrapper<MAPDialogSms> implemen
                 ipSmGwGuidanceIndicator, imsi, t4TriggerIndicator, singleAttemptDelivery, teleservice);
     }
 
-    @Override
+	@Override
+	public Long addSendRoutingInfoForSMRequest(ISDNAddressString msisdn, boolean sm_RP_PRI, AddressString serviceCentreAddress,
+											   MAPExtensionContainer extensionContainer, boolean gprsSupportIndicator, SM_RP_MTI sM_RP_MTI, SM_RP_SMEA sM_RP_SMEA,
+											   SMDeliveryNotIntended smDeliveryNotIntended, boolean ipSmGwGuidanceIndicator, IMSI imsi,
+											   boolean t4TriggerIndicator, boolean singleAttemptDelivery, TeleserviceCode teleservice,
+											   Long invokeId) throws MAPException {
+		return this.wrappedDialog.addSendRoutingInfoForSMRequest(msisdn, sm_RP_PRI, serviceCentreAddress, extensionContainer,
+				gprsSupportIndicator, sM_RP_MTI, sM_RP_SMEA, smDeliveryNotIntended, ipSmGwGuidanceIndicator, imsi,
+				t4TriggerIndicator, singleAttemptDelivery, teleservice, invokeId);
+	}
+
+	@Override
+	public Long addSendRoutingInfoForSMRequest(int customInvokeTimeout, ISDNAddressString msisdn, boolean sm_RP_PRI,
+											   AddressString serviceCentreAddress, MAPExtensionContainer extensionContainer, boolean gprsSupportIndicator,
+											   SM_RP_MTI sM_RP_MTI, SM_RP_SMEA sM_RP_SMEA, SMDeliveryNotIntended smDeliveryNotIntended,
+											   boolean ipSmGwGuidanceIndicator, IMSI imsi, boolean t4TriggerIndicator, boolean singleAttemptDelivery,
+											   TeleserviceCode teleservice, Long invokeId) throws MAPException {
+		return this.wrappedDialog.addSendRoutingInfoForSMRequest(customInvokeTimeout, msisdn, sm_RP_PRI, serviceCentreAddress,
+				extensionContainer, gprsSupportIndicator, sM_RP_MTI, sM_RP_SMEA, smDeliveryNotIntended,
+				ipSmGwGuidanceIndicator, imsi, t4TriggerIndicator, singleAttemptDelivery, teleservice, invokeId);
+	}
+
+	@Override
     public void addSendRoutingInfoForSMResponse(long invokeId, IMSI imsi, LocationInfoWithLMSI locationInfoWithLMSI,
             MAPExtensionContainer extensionContainer, Boolean mwdSet, IpSmGwGuidance ipSmGwGuidance) throws MAPException {
         this.wrappedDialog.addSendRoutingInfoForSMResponse(invokeId, imsi, locationInfoWithLMSI, extensionContainer, mwdSet,

@@ -9,7 +9,7 @@
 
 	<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 	<artifactId>restcomm-slee-ss7</artifactId>
-	<version>8.0.0-SNAPSHOT</version>
+	<version>8.0.1-SUMMA-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
@@ -17,7 +17,56 @@
 		<connection>scm:git:https://github.com/Restcomm/jain-slee.ss7/</connection>
 		<developerConnection>scm:git:https://github.com/Restcomm/jain-slee.ss7/</developerConnection>
 		<url>https://github.com/Restcomm/jain-slee.ss7/</url>
-	</scm>     
+	</scm>
+
+	<distributionManagement>
+
+		<repository>
+			<id>onevox</id>
+			<name>Onevox Repository</name>
+			<url>dav:https://devel.onevox.io/repository</url>
+		</repository>
+                <snapshotRepository>
+                   <id>snapshot</id>
+                   <name>Onevox Repository</name>
+                   <url>dav:https://devel.onevox.io/repository-snapshots</url>
+                </snapshotRepository>
+
+		<site>
+			<id>onevox</id>
+			<name>Onevox archive</name>
+			<url>dav:http://devel.onevox.io/archive/${project.artifactId}/${project.version}</url>
+		</site>
+	</distributionManagement>
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>1.0</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.2</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>restcomm-releases-repository</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy-to-sonatype</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
 
 	<profiles>
 		<!-- maven release profile, add all existent modules that build properly, so pom versions are updated and artifacts released -->
@@ -31,6 +80,23 @@
 			</modules>
 			<build>
 				<plugins>
+
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.2</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>restcomm-releases-repository</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+						</configuration>
+						<executions>
+							<execution>
+								<id>deploy-to-sonatype</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
@@ -91,6 +157,22 @@
 								</execution>
 						</executions>
 					</plugin>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.2</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>restcomm-releases-repository</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+						</configuration>
+						<executions>
+							<execution>
+								<id>deploy-to-sonatype</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
@@ -100,6 +182,11 @@
 	<!-- dupe info from parent, but it's only way to retrieve the parent without checkout -->
 
 	<repositories>
+		<repository>
+			<id>onevox</id>
+			<name>Onevox repository</name>
+			<url>http://devel.onevox.io/repository</url>
+		</repository>
 		<repository>
 			<id>restcomm-public-repository-group</id>
 			<name>Restcomm Public Maven Repository Group</name>
