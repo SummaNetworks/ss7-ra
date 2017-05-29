@@ -111,7 +111,7 @@ public class MAPDialogSupplementaryWrapper extends MAPDialogWrapper<MAPDialogSup
 
     @Override
     public Long addRegisterSSRequest(SSCode ssCode, BasicServiceCode basicService, AddressString forwardedToNumber, ISDNAddressString forwardedToSubaddress,
-            Integer noReplyConditionTime, EMLPPPriority defaultPriority, Integer nbrUser, ISDNAddressString longFTNSupported) throws MAPException {
+            Integer noReplyConditionTime, EMLPPPriority defaultPriority, Integer nbrUser, boolean longFTNSupported) throws MAPException {
         return this.wrappedDialog.addRegisterSSRequest(ssCode, basicService, forwardedToNumber, forwardedToSubaddress, noReplyConditionTime, defaultPriority,
                 nbrUser, longFTNSupported);
     }
@@ -119,7 +119,7 @@ public class MAPDialogSupplementaryWrapper extends MAPDialogWrapper<MAPDialogSup
     @Override
     public Long addRegisterSSRequest(int customInvokeTimeout, SSCode ssCode, BasicServiceCode basicService, AddressString forwardedToNumber,
             ISDNAddressString forwardedToSubaddress, Integer noReplyConditionTime, EMLPPPriority defaultPriority, Integer nbrUser,
-            ISDNAddressString longFTNSupported) throws MAPException {
+            boolean longFTNSupported) throws MAPException {
         return this.wrappedDialog.addRegisterSSRequest(customInvokeTimeout, ssCode, basicService, forwardedToNumber, forwardedToSubaddress,
                 noReplyConditionTime, defaultPriority, nbrUser, longFTNSupported);
     }

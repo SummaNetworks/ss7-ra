@@ -78,7 +78,7 @@ public class RegisterSSRequestWrapper extends SupplementaryMessageWrapper<Regist
     }
 
     @Override
-    public ISDNAddressString getLongFTNSupported() {
+    public boolean getLongFTNSupported() {
         return this.wrappedEvent.getLongFTNSupported();
     }
 
