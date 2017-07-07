@@ -9,7 +9,7 @@
 
 	<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 	<artifactId>restcomm-slee-ss7</artifactId>
-	<version>8.0.3-SUMMA-SNAPSHOT</version>
+	<version>8.0.3-SUMMA</version>
 
 	<packaging>pom</packaging>
 
@@ -26,11 +26,10 @@
 			<name>Onevox Repository</name>
 			<url>dav:https://devel.onevox.io/repository</url>
 		</repository>
-                <snapshotRepository>
-                   <id>snapshot</id>
-                   <name>Onevox Repository</name>
-                   <url>dav:https://devel.onevox.io/repository-snapshots</url>
-                </snapshotRepository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>dav:https://devel.onevox.io/repository-snapshots</url>
+		</snapshotRepository>
 
 		<site>
 			<id>onevox</id>
@@ -186,6 +185,13 @@
 			<id>onevox</id>
 			<name>Onevox repository</name>
 			<url>http://devel.onevox.io/repository</url>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<url>https://devel.onevox.io/repository-snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 		<repository>
 			<id>restcomm-public-repository-group</id>
