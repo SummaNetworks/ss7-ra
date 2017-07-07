@@ -28,6 +28,11 @@ public class ReportSMDeliveryStatusRequestWrapper extends SmsMessageWrapper<Repo
 		return this.wrappedEvent.getAdditionalAbsentSubscriberDiagnosticSM();
 	}
 
+	@Override
+	public long getMapProtocolVersion() {
+		return this.wrappedEvent.getMapProtocolVersion();
+	}
+
 	public SMDeliveryOutcome getAdditionalSMDeliveryOutcome() {
 		return this.wrappedEvent.getAdditionalSMDeliveryOutcome();
 	}
