@@ -859,6 +859,9 @@ public class MAPResourceAdaptor implements ResourceAdaptor, MAPDialogListener, M
 			MAPDialogActivityHandle handle = onEvent(dialogRelease.getEventTypeName(), mapDialogWrapper, dialogRelease);
 
 			// End Activity
+			this.tracer.fine("MAPResourceAdaptor::onDialogRelease::endingActivity with handle::" + handle);
+			this.tracer.finest("MAPResourceAdaptor::onDialogRelease::endingActivity with handle::" + handle);
+			System.out.println("MAPResourceAdaptor::onDialogRelease with handle::" + handle);
 			this.sleeEndpoint.endActivity(handle);
 		} catch (Exception e) {
 			this.tracer.severe(String.format(
@@ -1759,5 +1762,4 @@ public class MAPResourceAdaptor implements ResourceAdaptor, MAPDialogListener, M
 	public void onMAPMessage(MAPMessage arg0) {
 		// Do nothing
 	}
-
 }

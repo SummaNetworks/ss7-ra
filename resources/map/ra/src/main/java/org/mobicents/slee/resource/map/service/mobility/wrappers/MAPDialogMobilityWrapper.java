@@ -648,10 +648,13 @@ public class MAPDialogMobilityWrapper extends MAPDialogWrapper<MAPDialogMobility
                                                      ExtCallBarringInfoForCSE extCallBarringInfoForCSE,
                                                      ODBInfo odbInfo, CAMELSubscriptionInfo camelSubscriptionInfo,
                                                      boolean b, MAPExtensionContainer mapExtensionContainer,
-                                                     ServingNode servingNode, ArrayList<CSGSubscriptionData> arrayList,
+                                                     ServingNode servingNode, ArrayList<CSGSubscriptionData> csgSubscriptionDataArrayList,
                                                      CallWaitingData callWaitingData, CallHoldData callHoldData,
                                                      ClipData clipData, ClirData clirData, EctData ectData) throws MAPException {
-		return 0;
+		return this.wrappedDialog.addNoteSubscriberDataModifiedRequest(imsi, isdnAddressString, extForwardingInfoForCSE,
+                                                         extCallBarringInfoForCSE, odbInfo,  camelSubscriptionInfo, b,
+                                                         mapExtensionContainer, servingNode, csgSubscriptionDataArrayList,
+                                                         callWaitingData,  callHoldData, clipData,  clirData,  ectData);
 	}
 
 	@Override
@@ -660,10 +663,12 @@ public class MAPDialogMobilityWrapper extends MAPDialogWrapper<MAPDialogMobility
                                                      ExtCallBarringInfoForCSE extCallBarringInfoForCSE, ODBInfo odbInfo,
                                                      CAMELSubscriptionInfo camelSubscriptionInfo, boolean b,
                                                      MAPExtensionContainer mapExtensionContainer, ServingNode servingNode,
-                                                     ArrayList<CSGSubscriptionData> arrayList, CallWaitingData callWaitingData,
-                                                     CallHoldData callHoldData, ClipData clipData, ClirData clirData,
-                                                     EctData ectData) throws MAPException {
-		return 0;
+                                                     ArrayList<CSGSubscriptionData> csgSubscriptionDataArrayList,
+                                                     CallWaitingData callWaitingData, CallHoldData callHoldData,
+                                                     ClipData clipData, ClirData clirData, EctData ectData) throws MAPException {
+        return this.wrappedDialog.addNoteSubscriberDataModifiedRequest(l, imsi, isdnAddressString, extForwardingInfoForCSE,
+                extCallBarringInfoForCSE, odbInfo,  camelSubscriptionInfo, b, mapExtensionContainer, servingNode,
+                csgSubscriptionDataArrayList, callWaitingData,  callHoldData, clipData,  clirData,  ectData);
 	}
 
 	@Override
