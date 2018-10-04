@@ -639,7 +639,8 @@ public class MAPDialogMobilityWrapper extends MAPDialogWrapper<MAPDialogMobility
 											   MAPExtensionContainer mapExtensionContainer, ODBInfo odbInfo,
 											   CallWaitingData callWaitingData, CallHoldData callHoldData, ClipData clipData,
                                                ClirData clirData, EctData ectData, AddressString addressString) throws MAPException {
-
+		this.wrappedDialog.addAnyTimeModificationResponse(l, extSSInfoForCSE, camelSubscriptionInfo, mapExtensionContainer,
+				odbInfo, callWaitingData, callHoldData, clipData, clirData, ectData, addressString);
 	}
 
 	@Override
@@ -673,6 +674,7 @@ public class MAPDialogMobilityWrapper extends MAPDialogWrapper<MAPDialogMobility
 
 	@Override
 	public void addNoteSubscriberDataModifiedResponse(long l, MAPExtensionContainer mapExtensionContainer) throws MAPException {
+		this.wrappedDialog.addNoteSubscriberDataModifiedResponse(l, mapExtensionContainer);
 
 	}
 
