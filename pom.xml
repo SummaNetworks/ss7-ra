@@ -19,6 +19,11 @@
 		<url>https://github.com/Restcomm/jain-slee.ss7/</url>
 	</scm>
 
+    <modules>
+        <module>resources/map</module>
+    </modules>
+
+
 	<distributionManagement>
 
 		<repository>
