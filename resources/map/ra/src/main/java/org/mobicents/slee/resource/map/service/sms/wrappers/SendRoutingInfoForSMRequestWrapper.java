@@ -83,6 +83,16 @@ public class SendRoutingInfoForSMRequestWrapper extends SmsMessageWrapper<SendRo
         return this.wrappedEvent.getSmDeliveryNotIntended();
     }
 
+	@Override
+	public long getMapProtocolVersion() {
+		return this.wrappedEvent.getMapProtocolVersion();
+	}
+
+	@Override
+	public void setMapProtocolVersion(long l) {
+		this.wrappedEvent.setMapProtocolVersion(l);
+	}
+
     @Override
     public boolean getIpSmGwGuidanceIndicator() {
         return this.wrappedEvent.getIpSmGwGuidanceIndicator();
