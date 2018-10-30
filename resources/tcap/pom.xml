@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 		<artifactId>restcomm-slee-ss7</artifactId>
-		<version>8.0.6-SUMMA-SNAPSHOT</version>
+		<version>8.0.6-SUMMA</version>
 		<relativePath>../..</relativePath>		
 	</parent>
 	
