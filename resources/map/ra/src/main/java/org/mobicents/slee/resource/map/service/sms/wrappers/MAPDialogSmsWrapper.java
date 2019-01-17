@@ -155,10 +155,10 @@ public class MAPDialogSmsWrapper extends MAPDialogWrapper<MAPDialogSms> implemen
     public Long addSendRoutingInfoForSMRequest(ISDNAddressString msisdn, boolean sm_RP_PRI, AddressString serviceCentreAddress,
             MAPExtensionContainer extensionContainer, boolean gprsSupportIndicator, SM_RP_MTI sM_RP_MTI, SM_RP_SMEA sM_RP_SMEA,
             SMDeliveryNotIntended smDeliveryNotIntended, boolean ipSmGwGuidanceIndicator, IMSI imsi,
-            boolean t4TriggerIndicator, boolean singleAttemptDelivery) throws MAPException {
+            boolean t4TriggerIndicator, boolean singleAttemptDelivery, Long invokeId) throws MAPException {
         return this.wrappedDialog.addSendRoutingInfoForSMRequest(msisdn, sm_RP_PRI, serviceCentreAddress, extensionContainer,
                 gprsSupportIndicator, sM_RP_MTI, sM_RP_SMEA, smDeliveryNotIntended, ipSmGwGuidanceIndicator, imsi,
-                t4TriggerIndicator, singleAttemptDelivery);
+                t4TriggerIndicator, singleAttemptDelivery, invokeId);
     }
 
     @Override
@@ -173,8 +173,8 @@ public class MAPDialogSmsWrapper extends MAPDialogWrapper<MAPDialogSms> implemen
 
 	@Override
 	public Long addSendRoutingInfoForSMRequest(ISDNAddressString msisdn, boolean sm_RP_PRI, AddressString serviceCentreAddress,
-											   TeleserviceCode teleservice) throws MAPException {
-		return this.wrappedDialog.addSendRoutingInfoForSMRequest(msisdn, sm_RP_PRI, serviceCentreAddress, teleservice);
+											   TeleserviceCode teleservice, Long invokeId) throws MAPException {
+		return this.wrappedDialog.addSendRoutingInfoForSMRequest(msisdn, sm_RP_PRI, serviceCentreAddress, teleservice, invokeId);
 	}
 
 	@Override
