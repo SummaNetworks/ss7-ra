@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>restcomm-slee-ra-map</artifactId>
 		<groupId>org.mobicents.resources</groupId>
-		<version>8.0.0-SUMMA-1.0.10</version>
+		<version>8.0.0-SUMMA-1.0.11-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>restcomm-slee-ra-map-release</artifactId>
