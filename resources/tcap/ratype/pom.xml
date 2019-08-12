@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>restcomm-slee-ra-tcap</artifactId>
 		<groupId>org.mobicents.resources</groupId>
-		<version>8.0.0-SUMMA-1.0.13-SNAPSHOT</version>
+		<version>8.0.0-SUMMA-1.0.13</version>
 	</parent>
 	
 	<artifactId>restcomm-slee-ra-tcap-ratype</artifactId>
