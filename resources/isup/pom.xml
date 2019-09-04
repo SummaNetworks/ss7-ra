@@ -15,7 +15,7 @@
 
 
 	<properties>
-		<ss7.version>7.1.12-SUMMA</ss7.version>
+		<ss7.version>7.0.0-SUMMA-1.2.1</ss7.version>
 		<stream.version>1.0.0.FINAL</stream.version>
 	</properties>
 
