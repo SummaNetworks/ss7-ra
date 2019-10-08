@@ -34,7 +34,7 @@ import org.mobicents.slee.resource.map.service.mobility.wrappers.MobilityMessage
  */
 public class NoteSubscriberDataModifiedResponseWrapper extends MobilityMessageWrapper<NoteSubscriberDataModifiedResponse> implements NoteSubscriberDataModifiedResponse {
 
-    private static final String EVENT_TYPE_NAME = "ss7.map.service.mobility.subscriberinfo.PROVIDE_SUBSCRIBER_INFO_RESPONSE";
+    private static final String EVENT_TYPE_NAME = "ss7.map.service.mobility.subscriberinfo.NOTE_SUBSCRIBER_DATA_MODIFIED_RESPONSE";
 
     public NoteSubscriberDataModifiedResponseWrapper(MAPDialogMobilityWrapper mAPDialog, NoteSubscriberDataModifiedResponse req) {
         super(mAPDialog, EVENT_TYPE_NAME, req);
