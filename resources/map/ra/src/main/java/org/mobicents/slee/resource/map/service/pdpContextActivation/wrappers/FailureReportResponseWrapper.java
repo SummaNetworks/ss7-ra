@@ -33,7 +33,7 @@ import org.mobicents.protocols.ss7.map.api.service.pdpContextActivation.FailureR
  */
 public class FailureReportResponseWrapper extends PdpContextActivationMessageWrapper<FailureReportResponse> implements FailureReportResponse {
 
-    private static final String EVENT_TYPE_NAME = "ss7.map.service.pdpContextActivation.SEND_ROUTING_INFO_FOR_GPRS_RESPONSE";
+    private static final String EVENT_TYPE_NAME = "ss7.map.service.pdpContextActivation.FAILURE_REPORT_RESPONSE";
 
     public FailureReportResponseWrapper(MAPDialogPdpContextActivationWrapper mAPDialog, FailureReportResponse req) {
         super(mAPDialog, EVENT_TYPE_NAME, req);
