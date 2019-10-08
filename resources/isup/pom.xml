@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 		<artifactId>restcomm-slee-ss7</artifactId>
-		<version>8.0.0-SUMMA-1.0.13-SNAPSHOT</version>
+		<version>8.0.0-SUMMA-1.0.15-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
@@ -15,7 +15,7 @@
 
 
 	<properties>
-		<ss7.version>7.1.12-SUMMA</ss7.version>
+		<ss7.version>7.0.0-SUMMA-1.2.1</ss7.version>
 		<stream.version>1.0.0.FINAL</stream.version>
 	</properties>
 
