@@ -9,7 +9,7 @@
 
 	<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 	<artifactId>restcomm-slee-ss7</artifactId>
-	<version>8.0.0-SUMMA-1.0.17</version>
+	<version>8.0.0-SUMMA-1.0.18-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
