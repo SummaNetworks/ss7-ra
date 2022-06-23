@@ -9,7 +9,7 @@
 
 	<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 	<artifactId>restcomm-slee-ss7</artifactId>
-	<version>8.0.0-SUMMA-1.0.32-SNAPSHOT</version>
+	<version>8.0.0-SUMMA-1.0.32</version>
 
 	<packaging>pom</packaging>
 
@@ -17,7 +17,8 @@
 		<connection>scm:git:https://github.com/SummaNetworks/ss7-ra/</connection>
 		<developerConnection>scm:git:https://github.com/SummaNetworks/ss7-ra/</developerConnection>
 		<url>https://github.com/SummaNetworks/ss7-ra/</url>
-	</scm>
+	  <tag>restcomm-slee-ss7-8.0.0-SUMMA-1.0.32</tag>
+  </scm>
 
     <modules>
         <module>resources/map</module>
