@@ -77,10 +77,6 @@
 		<profile>
 			<id>maven-release</id>
 			<modules>
-				<module>resources/map</module>
-				<module>resources/cap</module>
-				<module>resources/tcap</module>
-				<module>resources/isup</module>
 			</modules>
 			<build>
 				<plugins>
@@ -114,17 +110,13 @@
 		</build>
 	</profile>
 
-	<!-- binary release profile, add only modules that are included in the binary -->
-	<profile>
-		<id>release</id>
-		<modules>
-			<module>resources/map</module>
-			<module>resources/cap</module>
-			<module>resources/tcap</module>
-			<module>resources/isup</module>
-		</modules>
-	</profile>
-	<profile>
+		<!-- binary release profile, add only modules that are included in the binary -->
+		<profile>
+			<id>release</id>
+			<modules>
+			</modules>
+		</profile>
+		<profile>
 		<id>release-sign-artifacts</id>
 			<activation>
 				<property>
