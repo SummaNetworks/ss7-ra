@@ -1,213 +1,213 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>restcomm-parent</artifactId>
-		<groupId>org.mobicents</groupId>
-		<version>2.27.32</version> <!-- parent pom version -->
-	</parent>
+    <parent>
+        <artifactId>restcomm-parent</artifactId>
+        <groupId>org.mobicents</groupId>
+        <version>2.27.32</version> <!-- parent pom version -->
+    </parent>
 
-	<groupId>org.mobicents.servers.jainslee.ss7</groupId>
-	<artifactId>restcomm-slee-ss7</artifactId>
-	<version>8.0.0-SUMMA-1.0.35-SNAPSHOT</version>
+    <groupId>org.mobicents.servers.jainslee.ss7</groupId>
+    <artifactId>restcomm-slee-ss7</artifactId>
+    <version>8.0.0-SUMMA-1.0.35-SNAPSHOT</version>
 
-	<packaging>pom</packaging>
+    <packaging>pom</packaging>
 
-	<scm>
-		<connection>scm:git:https://github.com/SummaNetworks/ss7-ra/</connection>
-		<developerConnection>scm:git:https://github.com/SummaNetworks/ss7-ra/</developerConnection>
-		<url>https://github.com/SummaNetworks/ss7-ra/</url>
-  </scm>
+    <scm>
+        <connection>scm:git:https://github.com/SummaNetworks/ss7-ra/</connection>
+        <developerConnection>scm:git:https://github.com/SummaNetworks/ss7-ra/</developerConnection>
+        <url>https://github.com/SummaNetworks/ss7-ra/</url>
+    </scm>
 
     <modules>
         <module>resources/map</module>
     </modules>
 
 
-	<distributionManagement>
+    <distributionManagement>
 
-		<repository>
-			<id>onevox</id>
-			<name>Onevox Repository</name>
-			<url>dav:https://devel.onevox.io/repository</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<url>dav:https://devel.onevox.io/repository-snapshots</url>
-		</snapshotRepository>
+        <repository>
+            <id>onevox</id>
+            <name>Onevox Repository</name>
+            <url>dav:https://devel.onevox.io/repository</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>dav:https://devel.onevox.io/repository-snapshots</url>
+        </snapshotRepository>
 
-		<site>
-			<id>onevox</id>
-			<name>Onevox archive</name>
-			<url>dav:http://devel.onevox.io/archive/${project.artifactId}/${project.version}</url>
-		</site>
-	</distributionManagement>
+        <site>
+            <id>onevox</id>
+            <name>Onevox archive</name>
+            <url>dav:http://devel.onevox.io/archive/${project.artifactId}/${project.version}</url>
+        </site>
+    </distributionManagement>
 
-	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-webdav-jackrabbit</artifactId>
-				<version>1.0</version>
-			</extension>
-		</extensions>
-		<plugins>
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.2</version>
-				<extensions>true</extensions>
-				<configuration>
-					<serverId>restcomm-releases-repository</serverId>
-					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-				</configuration>
-				<executions>
-					<execution>
-						<id>deploy-to-sonatype</id>
-						<phase>none</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav-jackrabbit</artifactId>
+                <version>1.0</version>
+            </extension>
+        </extensions>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.2</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>restcomm-releases-repository</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>deploy-to-sonatype</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
 
-	</build>
+    </build>
 
-	<profiles>
-		<!-- maven release profile, add all existent modules that build properly, so pom versions are updated and artifacts released -->
-		<profile>
-			<id>maven-release</id>
-			<modules>
-			</modules>
-			<build>
-				<plugins>
+    <profiles>
+        <!-- maven release profile, add all existent modules that build properly, so pom versions are updated and artifacts released -->
+        <profile>
+            <id>maven-release</id>
+            <modules>
+            </modules>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.2</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>restcomm-releases-repository</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>deploy-to-sonatype</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <configuration>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <preparationGoals>clean install</preparationGoals>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.2</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>restcomm-releases-repository</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-						</configuration>
-						<executions>
-							<execution>
-								<id>deploy-to-sonatype</id>
-								<phase>none</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-release-plugin</artifactId>
-					<configuration>
-						<autoVersionSubmodules>true</autoVersionSubmodules>
-						<preparationGoals>clean install</preparationGoals>
-						<autoVersionSubmodules>true</autoVersionSubmodules>
-					</configuration>
-				</plugin>
-			</plugins>
-		</build>
-	</profile>
-
-		<!-- binary release profile, add only modules that are included in the binary -->
-		<profile>
-			<id>release</id>
-			<modules>
-			</modules>
-		</profile>
-		<profile>
-		<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>install</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-source-plugin</artifactId>
-						<version>2.1.2</version>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
-								<phase>verify</phase>
-									<goals>
-										<goal>jar</goal>
-									</goals>
-								</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.2</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>restcomm-releases-repository</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
-							<skipStaging>true</skipStaging>
-						</configuration>
-						<executions>
-							<execution>
-								<id>deploy-to-sonatype</id>
-								<phase>none</phase>
-								</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+        <!-- binary release profile, add only modules that are included in the binary -->
+        <profile>
+            <id>release</id>
+            <modules>
+            </modules>
+        </profile>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.1.2</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.2</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>restcomm-releases-repository</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+                            <skipStaging>true</skipStaging>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>deploy-to-sonatype</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 
-	<!-- dupe info from parent, but it's only way to retrieve the parent without checkout -->
+    <!-- dupe info from parent, but it's only way to retrieve the parent without checkout -->
 
-	<repositories>
-		<repository>
-			<id>onevox</id>
-			<name>Onevox repository</name>
-			<url>http://devel.onevox.io/repository</url>
-		</repository>
-		<repository>
-			<id>snapshots</id>
-			<url>https://devel.onevox.io/repository-snapshots</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>restcomm-public-repository-group</id>
-			<name>Restcomm Public Maven Repository Group</name>
-			<url>https://oss.sonatype.org/content/groups/public</url>
-			<layout>default</layout>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>never</updatePolicy>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-				<updatePolicy>never</updatePolicy>
-			</snapshots>
-		</repository>
+    <repositories>
+        <repository>
+            <id>onevox</id>
+            <name>Onevox repository</name>
+            <url>http://devel.onevox.io/repository</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <url>https://devel.onevox.io/repository-snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>restcomm-public-repository-group</id>
+            <name>Restcomm Public Maven Repository Group</name>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
 
-	<!-- the place to extra repos -->
-	</repositories>
+        <!-- the place to extra repos -->
+    </repositories>
 
 </project>
