@@ -14,9 +14,9 @@
 	<packaging>pom</packaging>
 
 	<scm>
-		<connection>scm:git:https://github.com/Restcomm/jain-slee.ss7/</connection>
-		<developerConnection>scm:git:https://github.com/Restcomm/jain-slee.ss7/</developerConnection>
-		<url>https://github.com/Restcomm/jain-slee.ss7/</url>
+		<connection>scm:git:https://github.com/SummaNetworks/jain-slee.ss7/</connection>
+		<developerConnection>scm:git:https://github.com/SummaNetworks/jain-slee.ss7/</developerConnection>
+		<url>https://github.com/SummaNetworks/jain-slee.ss7/</url>
 	</scm>
 
     <modules>
