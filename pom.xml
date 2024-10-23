@@ -9,7 +9,7 @@
 
 	<groupId>org.mobicents.servers.jainslee.ss7</groupId>
 	<artifactId>restcomm-slee-ss7</artifactId>
-	<version>8.0.0-SUMMA-ANSI-ITU-1.0.34</version>
+	<version>8.0.1-SUMMA-ANSI-ITU-1.0.35-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
@@ -22,7 +22,7 @@
 		<connection>scm:git:https://github.com/SummaNetworks/jain-slee.ss7/</connection>
 		<developerConnection>scm:git:https://github.com/SummaNetworks/jain-slee.ss7/</developerConnection>
 		<url>https://github.com/SummaNetworks/jain-slee.ss7/</url>
-	  <tag>restcomm-slee-ss7-8.0.0-SUMMA-ANSI-ITU-1.0.34</tag>
+	  <tag>HEAD</tag>
   </scm>
 
     <modules>
